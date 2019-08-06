@@ -10,10 +10,12 @@
 # define RES_X 820
 # define RES_Y 640
 # define LIM_R 30
-# define ITER 300
-
+# define ITER 200
+# define ST_R 9
+# define ST_G 2
+# define ST_B 2
 typedef struct{
-	double x,y;
+	int x,y;
 }complex;
 
 typedef struct {
@@ -28,17 +30,19 @@ typedef struct {
     double v;       // a fraction between 0 and 1
 } hsv;
 
+int hextodec(long dec);
 int isSierpinskiCarpetPixelFilled(long int x, long int y);
 void SiepinskiCarpetFill(void *mlx_ptr, void *win_ptr, long int x, long int y);
 int ft_usage();
 complex add(complex a,complex b);
 complex sqr(complex a);
-double mod(complex a);
-complex mapPoint(double radius,int x,int y);
-void juliaSet(void *mlx_ptr, void *win_ptr,complex c,double radius,int n);
+int mod(complex a);
+complex mapPoint(int radius,int x,int y);
+void juliaSet(void *mlx_ptr, void *win_ptr,complex c,int radius,int n);
 int julia2(void *mlx_ptr, void *win_ptr);
 hsv   rgb2hsv(rgb in);
 rgb   hsv2rgb(hsv in);
+unsigned long createRGB(int r, int g, int b);
 
 
 #endif

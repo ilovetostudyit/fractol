@@ -6,8 +6,7 @@ int julia2(void *mlx_ptr, void *win_ptr)
   double zoom = 1, moveX = 0, moveY = 0; //you can change these to zoom and change position
   hsv color; //the RGB color value for the pixel
   rgb color2;
-  double fin_color;
-  int maxIterations = 300; //after how much iterations the function should stop
+  int fin_color; //after how much iterations the function should stop
 
   //pick some values for the constant c, this determines the shape of the Julia Set
   cRe = -0.7;
@@ -32,7 +31,7 @@ int julia2(void *mlx_ptr, void *win_ptr)
         
         //start the iteration process
         i = 0;
-        while (i < maxIterations)
+        while (i < ITER)
         {
             //remember value of previous iteration
             oldRe = newRe;
@@ -46,12 +45,19 @@ int julia2(void *mlx_ptr, void *win_ptr)
         }
         //use color model conversion to get rainbow palette, make brightness black if maxIterations reached
 
-        color.h = (i % 256);
+        color.h = (i % 255);
         color.s = 255;
-        color.v = 255*(i < maxIterations);
+        color.v = 255*(i < ITER);
         color2 = hsv2rgb(color);
+        if (i < ITER)
+        {
+          color2.r = i  * ST_R % 255;
+          color2.g = i * ST_G % 255;
+          color2.b = i* ST_B % 255;
+        }
         //draw the pixel
-        fin_color = color2.r * 1000000 + color2.g * 1000 + color2.b;
+        fin_color = createRGB((color2.r), (color2.g), (color2.b));
+        //fin_color = (((i * color2.r) % 255) << 16) + (((i * color2.g) % 255) << 8) + (i * color2.b) % 255;
         mlx_pixel_put(mlx_ptr, win_ptr, x, y, fin_color);
         x++;
     }

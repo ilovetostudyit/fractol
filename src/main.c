@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/06 11:30:18 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/06 14:56:41 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,10 @@ int main(int argc, char **argv)
 {
     int fr_num;
     void *mlx_ptr;
-    void *win_ptr;  
-    complex c;
+    void *win_ptr;
     
-    c.x = -0.7;
-    c.y = 0.27015;
+    //c.x = -0.7;
+    //c.y = 0.27015;
     if ((argc != 2) || (!(fr_num = ft_check_args(argv[1]))))
         return(ft_usage());
     mlx_ptr = mlx_init();
@@ -51,7 +50,6 @@ int main(int argc, char **argv)
     }
     else if (fr_num == 1)
     {
-        //juliaSet(mlx_ptr, win_ptr,c, LIM_R, ITER);
         julia2(mlx_ptr,win_ptr);
     }
     mlx_loop(mlx_ptr);

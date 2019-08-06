@@ -47,7 +47,7 @@ hsv rgb2hsv(rgb in)
 
 rgb hsv2rgb(hsv in)
 {
-    double      hh, p, q, t, ff;
+    double    hh, p, q, t, ff;
     long        i;
     rgb         out;
 
