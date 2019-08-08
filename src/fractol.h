@@ -14,9 +14,40 @@
 # define ST_R 9
 # define ST_G 2
 # define ST_B 2
+# define ZOOM 1
+# define MOVE_X 0
+# define MOVE_Y 0
+
+# define KEY_R			15
+# define KEY_1			18
+# define KEY_2			19
+# define KEY_3			20
+# define KEY_4			21
+# define KEY_5			23
+# define KEY_6			22
+# define KEY_7			26
+# define KEY_M			46
+# define KEY_ESCAPE		53
+# define KEY_PLUS		69
+# define KEY_MINUS		78
+# define KEY_LEFT		123
+# define KEY_UP			126
+# define KEY_RIGHT		124
+# define KEY_DOWN		125
+
+# define MOUSE_LEFT		1
+# define MOUSE_RIGHT	2
+# define MOUSE_DOWN		5
+# define MOUSE_UP		4
 typedef struct{
 	int x,y;
 }complex;
+
+typedef struct {
+    void *mlx;       // a fraction between 0 and 1
+    void *win;       // a fraction between 0 and 1
+    int zoom;       // a fraction between 0 and 1
+} argum;
 
 typedef struct {
     double r;       // a fraction between 0 and 1
@@ -43,6 +74,7 @@ int julia2(void *mlx_ptr, void *win_ptr);
 hsv   rgb2hsv(rgb in);
 rgb   hsv2rgb(hsv in);
 unsigned long createRGB(int r, int g, int b);
+int mandelbrot(void *mlx_ptr, void *win_ptr);
 
 
 #endif

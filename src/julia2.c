@@ -3,7 +3,6 @@ int julia2(void *mlx_ptr, void *win_ptr)
 {
   double cRe, cIm;           //real and imaginary part of the constant c, determinate shape of the Julia Set
   double newRe, newIm, oldRe, oldIm;   //real and imaginary parts of new and old
-  double zoom = 1, moveX = 0, moveY = 0; //you can change these to zoom and change position
   hsv color; //the RGB color value for the pixel
   rgb color2;
   int fin_color; //after how much iterations the function should stop
@@ -24,9 +23,9 @@ int julia2(void *mlx_ptr, void *win_ptr)
   {
     while(x < RES_X)
     {
-        //calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-        newRe = 1.5 * (x - RES_X / 2) / (0.5 * zoom * RES_X) + moveX;
-        newIm = (y - RES_Y / 2) / (0.5 * zoom * RES_Y) + moveY;
+        //calculate the initial real and imaginary part of z, based on the pixel location and ZOOM and position values
+        newRe = 1.5 * (x - RES_X / 2) / (0.5 * ZOOM * RES_X) + MOVE_X;
+        newIm = (y - RES_Y / 2) / (0.5 * ZOOM * RES_Y) + MOVE_Y;
         //i will represent the number of iterations
         
         //start the iteration process
