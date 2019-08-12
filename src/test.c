@@ -1,5 +1,5 @@
 #include "fractol.h"
-int julia2(void *mlx_ptr, void *win_ptr)
+int test(void *mlx_ptr, void *win_ptr)
 {
   double cRe, cIm;           //real and imaginary part of the constant c, determinate shape of the Julia Set
   double newRe, newIm, oldRe, oldIm;   //real and imaginary parts of new and old
@@ -15,6 +15,7 @@ int julia2(void *mlx_ptr, void *win_ptr)
   int x,y;
   int i;
   int col_ra;
+
   x = 0;
   y = 0;
   col_ra=0;
@@ -22,9 +23,9 @@ int julia2(void *mlx_ptr, void *win_ptr)
   {
     while(x < RES_X)
     {
-        //calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-        newRe = 1.5 * (x - RES_X / 2) / (0.5 * zoom * RES_X) + move_x;
-        newIm = (y - RES_Y / 2) / (0.5 * zoom * RES_Y) + move_y;
+        //calculate the initial real and imaginary part of z, based on the pixel location and ZOOM and position values
+        newRe = 1.5 * (x - RES_X / 2) / (0.5 * ZOOM * RES_X) + MOVE_X;
+        newIm = (y - RES_Y / 2) / (0.5 * ZOOM * RES_Y) + MOVE_Y;
         //i will represent the number of iterations
         
         //start the iteration process

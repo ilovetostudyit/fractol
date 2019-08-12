@@ -39,15 +39,21 @@
 # define MOUSE_RIGHT	2
 # define MOUSE_DOWN		5
 # define MOUSE_UP		4
+double zoom;
+double move_x;
+double move_y;
+void *mlx;
+void *win;
+int fr_num;
 typedef struct{
 	int x,y;
 }complex;
 
-typedef struct {
+typedef struct s_argum {
     void *mlx;       // a fraction between 0 and 1
     void *win;       // a fraction between 0 and 1
-    int zoom;       // a fraction between 0 and 1
-} argum;
+    double zoom;       // a fraction between 0 and 1
+} t_argum;
 
 typedef struct {
     double r;       // a fraction between 0 and 1
@@ -75,6 +81,7 @@ hsv   rgb2hsv(rgb in);
 rgb   hsv2rgb(hsv in);
 unsigned long createRGB(int r, int g, int b);
 int mandelbrot(void *mlx_ptr, void *win_ptr);
-
-
+void ft_function(int fr_num);
+void clear_image(void *mlx_ptr, void *win_ptr);
+int ft_form(int button);
 #endif

@@ -5,7 +5,6 @@ int mandelbrot(void *mlx_ptr, void *win_ptr)
   //each iteration, it calculates: newz = oldz*oldz + p, where p is the current pixel, and oldz stars at the origin
   double pr, pi;           //real and imaginary part of the pixel p
   double newRe, newIm, oldRe, oldIm;   //real and imaginary parts of new and old z
-  double zoom = 1, moveX = -0.5, moveY = 0; //you can change these to zoom and change position
   int maxIterations = 300;//after how much iterations the function should stop
   hsv color; //the RGB color value for the pixel
   rgb color2;
@@ -16,8 +15,8 @@ int mandelbrot(void *mlx_ptr, void *win_ptr)
   for(int x = 0; x < RES_X; x++)
   {
     //calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-    pr = 1.5 * (x - RES_X / 2) / (0.5 * zoom * RES_X) + moveX;
-    pi = (y - RES_Y / 2) / (0.5 * zoom * RES_Y) + moveY;
+    pr = 1.5 * (x - RES_X / 2) / (0.5 * zoom * RES_X) + move_x;
+    pi = (y - RES_Y / 2) / (0.5 * zoom * RES_Y) + move_y;
     newRe = newIm = oldRe = oldIm = 0; //these should start at 0,0
     //"i" will represent the number of iterations
     int i;
