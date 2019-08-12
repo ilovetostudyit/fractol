@@ -38,9 +38,9 @@ int mandelbrot(void *mlx_ptr, void *win_ptr)
     color2 = hsv2rgb(color);
     if (i < ITER)
     {
-        color2.r = i  * ST_R % 255;
-        color2.g = i * ST_G % 255;
-        color2.b = i* ST_B % 255;
+        color2.r = i  * st_r % 255;
+        color2.g = i * st_g % 255;
+        color2.b = i* st_b % 255;
     }
         //draw the pixel
     fin_color = createRGB((color2.r), (color2.g), (color2.b));

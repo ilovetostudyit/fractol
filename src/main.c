@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/12 16:25:26 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/12 17:19:46 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,52 @@
 
 int ft_form(int button)
 {
-    if (button == 18 || button == 19 || button == 20)
+    if (button == KEY_UP)
+    {
+        move_y = move_y - 0.1;
+    }
+    else if (button == KEY_DOWN)
+    {
+        move_y= move_y + 0.1;
+    }
+    else if (button == KEY_LEFT)
+    {
+        move_x = move_x - 0.1;
+    }
+    else if (button == KEY_RIGHT)
+    {
+        move_x = move_x + 0.1;
+    }
+    else if (button == 18 || button == 19 || button == 20)
     {
         fr_num = button - 17;
         clear_image(mlx, win);
-        ft_function(fr_num);
     }
+    else if (button == 21)
+    {
+        if (st_r < 9)
+            st_r++;
+        else
+            st_r = 0;
+    }
+    else if (button == 22)
+    {
+        if (st_g < 9)
+            st_g++;
+        else
+            st_g = 0;
+    }
+    else if (button == 23)
+    {
+        if (st_b < 9)
+            st_b++;
+        else
+            st_b = 0;
+    }
+    ft_function(fr_num);
     return(0);
 }
+
 void clear_image(void *mlx_ptr, void *win_ptr)
 {
     int x;
@@ -126,6 +164,9 @@ int main(int argc, char **argv)
 {
     t_argum *argum2;
 
+    st_r = 2;
+    st_b = 2;
+    st_g = 9;
     move_x = -0.5;
     move_y = 0;
     argum2 = (t_argum*)malloc(sizeof(t_argum));

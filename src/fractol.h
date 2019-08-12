@@ -11,9 +11,6 @@
 # define RES_Y 640
 # define LIM_R 30
 # define ITER 200
-# define ST_R 9
-# define ST_G 2
-# define ST_B 2
 # define ZOOM 1
 # define MOVE_X 0
 # define MOVE_Y 0
@@ -39,6 +36,10 @@
 # define MOUSE_RIGHT	2
 # define MOUSE_DOWN		5
 # define MOUSE_UP		4
+
+int st_r;
+int st_g;
+int st_b;
 double zoom;
 double move_x;
 double move_y;
