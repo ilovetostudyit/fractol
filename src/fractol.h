@@ -7,10 +7,10 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
-# define RES_X 820
-# define RES_Y 640
+# define RES_X 200
+# define RES_Y 200
 # define LIM_R 30
-# define ITER 200
+# define ITER 50
 # define ZOOM 1
 # define MOVE_X 0
 # define MOVE_Y 0

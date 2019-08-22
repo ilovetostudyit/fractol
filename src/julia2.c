@@ -6,6 +6,7 @@ int julia2(void *mlx_ptr, void *win_ptr)
   hsv color; //the RGB color value for the pixel
   rgb color2;
   int fin_color; //after how much iterations the function should stop
+  FILE * ptrFile = fopen("julia.txt", "w");
 
   //pick some values for the constant c, this determines the shape of the Julia Set
   cRe = -0.7;
@@ -57,10 +58,14 @@ int julia2(void *mlx_ptr, void *win_ptr)
         fin_color = createRGB((color2.r), (color2.g), (color2.b));
         //fin_color = (((i * color2.r) % 255) << 16) + (((i * color2.g) % 255) << 8) + (i * color2.b) % 255;
         mlx_pixel_put(mlx_ptr, win_ptr, x, y, fin_color);
+        fputs(ft_itoa(fin_color / (RES_X * RES_Y)), ptrFile);
+        fputs(" ", ptrFile);
         x++;
     }
     x = 0;
+    fputs("\n", ptrFile);
     y++;
   }
+  fclose(ptrFile);
   return 0;
 }
