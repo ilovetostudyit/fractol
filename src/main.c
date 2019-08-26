@@ -6,12 +6,11 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/12 17:19:46 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/26 14:31:10 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
 
 int ft_form(int button)
 {
@@ -56,6 +55,10 @@ int ft_form(int button)
             st_b++;
         else
             st_b = 0;
+    }
+    else if (button == KEY_CLEAR)
+    {
+        clear_image(mlx, win);
     }
     ft_function(fr_num);
     return(0);
@@ -118,28 +121,6 @@ int ft_zoom(int button)
     return(0);
 }
 
-int ft_move(int button)
-{
-    if (button == KEY_UP)
-    {
-        move_y = move_y - 0.1;
-    }
-    else if (button == KEY_DOWN)
-    {
-        move_y= move_y + 0.1;
-    }
-    else if (button == KEY_LEFT)
-    {
-        move_x = move_x - 0.1;
-    }
-    else if (button == KEY_RIGHT)
-    {
-        move_x = move_x + 0.1;
-    }
-    ft_function(fr_num);
-    return(0);
-}
-
 int ft_usage()
 {
     ft_putstr("USAGE: program draws these fractals:\n");
@@ -181,7 +162,6 @@ int main(int argc, char **argv)
     ft_function(fr_num);
     argum2->zoom = zoom;
     mlx_mouse_hook(argum2->win, ft_zoom, argum2);
-    mlx_key_hook(argum2->win, ft_move, argum2);
     mlx_key_hook(argum2->win, ft_form, argum2);
     mlx_loop(argum2->mlx);
     return(0);

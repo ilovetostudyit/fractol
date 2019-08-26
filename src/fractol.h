@@ -7,8 +7,8 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
-# define RES_X 200
-# define RES_Y 200
+# define RES_X 400
+# define RES_Y 400
 # define LIM_R 30
 # define ITER 50
 # define ZOOM 1
@@ -31,11 +31,13 @@
 # define KEY_UP			126
 # define KEY_RIGHT		124
 # define KEY_DOWN		125
+# define KEY_CLEAR      117
 
 # define MOUSE_LEFT		1
 # define MOUSE_RIGHT	2
 # define MOUSE_DOWN		5
 # define MOUSE_UP		4
+
 
 int st_r;
 int st_g;
@@ -85,4 +87,5 @@ int mandelbrot(void *mlx_ptr, void *win_ptr);
 void ft_function(int fr_num);
 void clear_image(void *mlx_ptr, void *win_ptr);
 int ft_form(int button);
+int ft_clear(int button);
 #endif
