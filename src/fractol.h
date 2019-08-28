@@ -75,7 +75,7 @@ typedef struct {
 
 int hextodec(long dec);
 int isSierpinskiCarpetPixelFilled(long int x, long int y);
-void SiepinskiCarpetFill(void *mlx_ptr, void *win_ptr, long int x, long int y);
+void SiepinskiCarpetFill(void *mlx_ptr, void *win_ptr);
 int ft_usage();
 complex add(complex a,complex b);
 complex sqr(complex a);

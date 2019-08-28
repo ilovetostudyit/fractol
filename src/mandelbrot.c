@@ -5,7 +5,6 @@ int mandelbrot(void *mlx_ptr, void *win_ptr)
   //each iteration, it calculates: newz = oldz*oldz + p, where p is the current pixel, and oldz stars at the origin
   double pr, pi;           //real and imaginary part of the pixel p
   double newRe, newIm, oldRe, oldIm;   //real and imaginary parts of new and old z
-  int maxIterations = 300;//after how much iterations the function should stop
   hsv color; //the RGB color value for the pixel
   rgb color2;
   int fin_color; //after how much iterations the function should stop
@@ -27,7 +26,7 @@ int mandelbrot(void *mlx_ptr, void *win_ptr)
       //"i" will represent the number of iterations
       int i;
       //start the iteration process
-      for(i = 0; i < maxIterations; i++)
+      for(i = 0; i < ITER; i++)
       {
         //remember value of previous iteration
         oldRe = newRe;
