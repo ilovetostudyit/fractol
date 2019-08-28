@@ -20,11 +20,11 @@ void SiepinskiCarpetFill(void *mlx_ptr, void *win_ptr, long int x, long int y)
 
     x_1 = 0;
     y_1 = 0;
-    while (x_1 < x)
+    while (x_1  < x)
     {
         while (y_1 < y)
         {
-            if (isSierpinskiCarpetPixelFilled(x_1, y_1))
+            if (isSierpinskiCarpetPixelFilled(x_1*zoom, y_1*zoom))
                 mlx_pixel_put(mlx_ptr, win_ptr, x_1, y_1, 0xFFFFFF);
             y_1++;
         }

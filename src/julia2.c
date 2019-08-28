@@ -1,7 +1,7 @@
 #include "fractol.h"
 int julia2(void *mlx_ptr, void *win_ptr)
 {
-  double cRe, cIm;           //real and imaginary part of the constant c, determinate shape of the Julia Set
+  //double cRe, cIm;           //real and imaginary part of the constant c, determinate shape of the Julia Set
   double newRe, newIm, oldRe, oldIm;   //real and imaginary parts of new and old
   hsv color; //the RGB color value for the pixel
   rgb color2;
@@ -9,8 +9,6 @@ int julia2(void *mlx_ptr, void *win_ptr)
   FILE * ptrFile = fopen("julia.txt", "w");
 
   //pick some values for the constant c, this determines the shape of the Julia Set
-  cRe = -0.7;
-  cIm = 0.27015;
 
   //loop through every pixel
   int x,y;
@@ -19,6 +17,7 @@ int julia2(void *mlx_ptr, void *win_ptr)
   x = 0;
   y = 0;
   col_ra=0;
+  printf("%f\n", cRe);
   while(y < RES_Y)
   {
     while(x < RES_X)

@@ -48,6 +48,9 @@ double move_y;
 void *mlx;
 void *win;
 int fr_num;
+double cRe;
+double cIm;
+int mouse_off;
 typedef struct{
 	int x,y;
 }complex;
@@ -88,4 +91,5 @@ void ft_function(int fr_num);
 void clear_image(void *mlx_ptr, void *win_ptr);
 int ft_form(int button);
 int ft_clear(int button);
+int ft_track(int x, int y, void *param);
 #endif

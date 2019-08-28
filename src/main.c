@@ -6,11 +6,27 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/26 14:31:10 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/28 14:26:01 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int ft_track(int x, int y, void *param)
+{
+    //printf("button = %d\n", button);
+    if (fr_num == 1 && mouse_off)
+    {
+        param = 0;
+        if (x >=0 && x <= RES_X && y>=0 && y <=RES_Y)
+        {
+            cRe = (double)x * -0.002205;
+            cIm = (double)y * 0.00081;
+            ft_function(fr_num);
+        }
+    }
+    return(0);
+}
 
 int ft_form(int button)
 {
@@ -59,6 +75,14 @@ int ft_form(int button)
     else if (button == KEY_CLEAR)
     {
         clear_image(mlx, win);
+    }
+    else if (button == KEY_M)
+    {
+        if (mouse_off)
+            mouse_off = 0;
+        else
+            mouse_off = 1;
+        
     }
     ft_function(fr_num);
     return(0);
@@ -145,6 +169,9 @@ int main(int argc, char **argv)
 {
     t_argum *argum2;
 
+    mouse_off = 1;
+    cRe = -0.7;
+    cIm = 0.27015;
     st_r = 2;
     st_b = 2;
     st_g = 9;
@@ -161,6 +188,7 @@ int main(int argc, char **argv)
     win = argum2->win;
     ft_function(fr_num);
     argum2->zoom = zoom;
+    mlx_hook(argum2->win, 6, (1L << 6), ft_track, argum2);
     mlx_mouse_hook(argum2->win, ft_zoom, argum2);
     mlx_key_hook(argum2->win, ft_form, argum2);
     mlx_loop(argum2->mlx);
