@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 15:15:13 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 15:37:40 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 17:05:34 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			burningship(void *mlx_ptr, void *win_ptr)
 				color2.g = i * st_g % 255;
 				color2.b = i * st_b % 255;
 			}
-			fin_color = createRGB((color2.r), (color2.g), (color2.b));
+			fin_color = creatergb((color2.r), (color2.g), (color2.b));
 			fputs(ft_itoa(fin_color / 10000), ptrfile);
 			fputs(" ", ptrfile);
 			mlx_pixel_put(mlx_ptr, win_ptr, x, y, fin_color);

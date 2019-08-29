@@ -54,7 +54,7 @@ int julia2(void *mlx_ptr, void *win_ptr)
           color2.b = i* st_b % 255;
         }
         //draw the pixel
-        fin_color = createRGB((color2.r), (color2.g), (color2.b));
+        fin_color = creatergb((color2.r), (color2.g), (color2.b));
         //fin_color = (((i * color2.r) % 255) << 16) + (((i * color2.g) % 255) << 8) + (i * color2.b) % 255;
         mlx_pixel_put(mlx_ptr, win_ptr, x, y, fin_color);
         fputs(ft_itoa(fin_color / (RES_X * RES_Y)), ptrfile);

@@ -75,7 +75,7 @@ typedef struct {
 
 int hextodec(long dec);
 int isSierpinskiCarpetPixelFilled(long int x, long int y);
-void SiepinskiCarpetFill(void *mlx_ptr, void *win_ptr);
+void sierpinskicarpet(void *mlx_ptr, void *win_ptr);
 int ft_usage();
 complex add(complex a,complex b);
 complex sqr(complex a);
@@ -85,7 +85,7 @@ void juliaSet(void *mlx_ptr, void *win_ptr,complex c,int radius,int n);
 int julia2(void *mlx_ptr, void *win_ptr);
 hsv   rgb2hsv(rgb in);
 rgb   hsv2rgb(hsv in);
-unsigned long createRGB(int r, int g, int b);
+unsigned long creatergb(int r, int g, int b);
 int mandelbrot(void *mlx_ptr, void *win_ptr);
 void ft_function(int fr_num);
 void clear_image(void *mlx_ptr, void *win_ptr);

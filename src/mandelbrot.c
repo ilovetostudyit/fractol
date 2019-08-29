@@ -48,7 +48,7 @@ int mandelbrot(void *mlx_ptr, void *win_ptr)
           color2.b = i* st_b % 255;
       }
           //draw the pixel
-      fin_color = createRGB((color2.r), (color2.g), (color2.b));
+      fin_color = creatergb((color2.r), (color2.g), (color2.b));
       fputs(ft_itoa(fin_color/10000), ptrfile);
       fputs(" ", ptrfile);
       //printf("%d ", fin_color);

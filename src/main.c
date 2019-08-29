@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 15:10:45 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 17:13:01 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void ft_function(int fr_num)
 {
      if (fr_num == 4)
     {
-        SiepinskiCarpetFill(mlx, win);
+        sierpinskicarpet(mlx, win);
     }
     else if (fr_num == 1)
     {
