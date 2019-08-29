@@ -92,4 +92,5 @@ void clear_image(void *mlx_ptr, void *win_ptr);
 int ft_form(int button);
 int ft_clear(int button);
 int ft_track(int x, int y, void *param);
+int burningship(void *mlx_ptr, void *win_ptr);
 #endif

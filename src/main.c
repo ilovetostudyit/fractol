@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/28 16:34:31 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 15:03:42 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void clear_image(void *mlx_ptr, void *win_ptr)
 
 void ft_function(int fr_num)
 {
-     if (fr_num == 3)
+     if (fr_num == 4)
     {
         SiepinskiCarpetFill(mlx, win);
     }
@@ -120,6 +120,10 @@ void ft_function(int fr_num)
     else if (fr_num == 2)
     {
         mandelbrot(mlx, win);
+    }
+    else if (fr_num == 3)
+    {
+        burningship(mlx, win);
     }
 }
 
@@ -150,6 +154,7 @@ int ft_usage()
     ft_putstr("USAGE: program draws these fractals:\n");
     ft_putstr("Mandelbrot\n");
     ft_putstr("Julia\n");
+    ft_putstr("Burningship\n");
     ft_putstr("Sierpinski\n");
     return(0);
 }
@@ -160,8 +165,10 @@ int ft_check_args(char *str)
        return (1);
     else if (!(ft_strcmp(str, "Mandelbrot")))
        return (2);
-    else if (!(ft_strcmp(str, "Sierpinski")))
+    else if (!(ft_strcmp(str, "Burningship")))
       return (3);
+    else if (!(ft_strcmp(str, "Sierpinski")))
+      return (4);
     return(0);
 }
 
