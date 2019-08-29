@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:17:56 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 17:18:53 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 17:23:39 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		mandelbrot(void *mlx_ptr, void *win_ptr)
 	double		newre;
 	double		newim;
 	double		oldre;
-	double		oldimm;
+	double		oldim;
 	hsv			color;
 	rgb			color2;
 	int			fin_color;
@@ -43,9 +43,9 @@ int		mandelbrot(void *mlx_ptr, void *win_ptr)
 			while (i < ITER)
 			{
 				oldre = newre;
-				oldimm = newim;
-				newre = oldre * oldre - oldimm * oldimm + pr;
-				newim = 2 * oldre * oldimm + pi;
+				oldim = newim;
+				newre = oldre * oldre - oldim * oldim + pr;
+				newim = 2 * oldre * oldim + pi;
 				if ((newre * newre + newim * newim) > 4)
 					break ;
 				i++;
