@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:32:41 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 17:47:40 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 18:08:35 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_track(int x, int y, void *param)
 		param = 0;
 		if (x >= 0 && x <= RES_X && y >= 0 && y <= RES_Y)
 		{
-			cRe = (double)x * -0.002205;
-			cIm = (double)y * 0.00081;
+			cre = (double)x * -0.002205;
+			cim = (double)y * 0.00081;
 			ft_function(fr_num);
 		}
 	}

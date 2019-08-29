@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hextodec.c                                         :+:      :+:    :+:   */
+/*   mich.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/29 15:40:45 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 18:12:12 by ehaggon          ###   ########.fr       */
+/*   Created: 2019/08/29 20:05:23 by ehaggon           #+#    #+#             */
+/*   Updated: 2019/08/29 20:09:22 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-unsigned long		create_rgb(int r, int g, int b)
+long int dim_count(void)
 {
-	return ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
+    long int dim;
+    int x;
+    
+    x = 0;
+    dim = 1;
+    while (x < ITER)
+	{
+		dim *= 3;
+		x++;
+	}
+    return(dim);
 }

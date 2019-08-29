@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
+/*   Updated: 2019/08/29 20:14:58 by ehaggon          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -7,6 +19,7 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
+
 # define RES_X 400
 # define RES_Y 400
 # define LIM_R 30
@@ -14,7 +27,6 @@
 # define ZOOM 1
 # define MOVE_X 0
 # define MOVE_Y 0
-
 # define KEY_R			15
 # define KEY_1			18
 # define KEY_2			19
@@ -32,12 +44,10 @@
 # define KEY_RIGHT		124
 # define KEY_DOWN		125
 # define KEY_CLEAR      117
-
 # define MOUSE_LEFT		1
 # define MOUSE_RIGHT	2
 # define MOUSE_DOWN		5
 # define MOUSE_UP		4
-
 
 int st_r;
 int st_g;
@@ -48,49 +58,41 @@ double move_y;
 void *mlx;
 void *win;
 int fr_num;
-double cRe;
-double cIm;
+double cre;
+double cim;
 int mouse_off;
-typedef struct{
-	int x,y;
-}complex;
 
-typedef struct s_argum {
-    void *mlx;       // a fraction between 0 and 1
-    void *win;       // a fraction between 0 and 1
-    double zoom;       // a fraction between 0 and 1
-} t_argum;
+typedef struct	s_argum{
+	void		*mlx;
+	void		*win;
+	double		zoom;
+}				t_argum;
 
-typedef struct {
-    double r;       // a fraction between 0 and 1
-    double g;       // a fraction between 0 and 1
-    double b;       // a fraction between 0 and 1
-} rgb;
+typedef struct	s_rgb{
+	double	r;
+	double	g;
+	double	b;
+}				t_rgb;
 
-typedef struct {
-    double h;       // angle in degrees
-    double s;       // a fraction between 0 and 1
-    double v;       // a fraction between 0 and 1
-} hsv;
+typedef struct s_coord{
+	long long int px;
+	long long int py;
+}				t_coord;
 
-int hextodec(long dec);
-int isSierpinskiCarpetPixelFilled(long int x, long int y);
-void sierpinskicarpet(void *mlx_ptr, void *win_ptr);
-int ft_usage();
-complex add(complex a,complex b);
-complex sqr(complex a);
-int mod(complex a);
-complex mapPoint(int radius,int x,int y);
-void juliaSet(void *mlx_ptr, void *win_ptr,complex c,int radius,int n);
-int julia2(void *mlx_ptr, void *win_ptr);
-hsv   rgb2hsv(rgb in);
-rgb   hsv2rgb(hsv in);
-unsigned long creatergb(int r, int g, int b);
-int mandelbrot(void *mlx_ptr, void *win_ptr);
-void ft_function(int fr_num);
-void clear_image(void *mlx_ptr, void *win_ptr);
-int ft_form(int button);
-int ft_clear(int button);
-int ft_track(int x, int y, void *param);
-int burningship(void *mlx_ptr, void *win_ptr);
+int				hextodec(long dec);
+void			sierpinskicarpet(void *mlx_ptr, void *win_ptr);
+int				ft_usage(void);
+int				julia2(void *mlx_ptr, void *win_ptr);
+unsigned long	create_rgb(int r, int g, int b);
+int				mandelbrot(void *mlx_ptr, void *win_ptr);
+void			ft_function(int fr_num);
+void			clear_image(void *mlx_ptr, void *win_ptr);
+int				ft_form(int button);
+int				ft_clear(int button);
+int				ft_track(int x, int y, void *param);
+int				burningship(void *mlx_ptr, void *win_ptr);
+int				ft_zoom(int button);
+int				coloring(int i);
+int				serp_coloring(int i, long int d);
+long int		dim_count(void);
 #endif

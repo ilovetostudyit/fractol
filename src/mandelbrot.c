@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:17:56 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 17:23:39 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 19:50:26 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int		mandelbrot(void *mlx_ptr, void *win_ptr)
 	double		newim;
 	double		oldre;
 	double		oldim;
-	hsv			color;
-	rgb			color2;
 	int			fin_color;
 	FILE		*ptrfile;
 	int			y;
@@ -50,17 +48,7 @@ int		mandelbrot(void *mlx_ptr, void *win_ptr)
 					break ;
 				i++;
 			}
-			color.h = (i % 255);
-			color.s = 255;
-			color.v = 255 * (i < ITER);
-			color2 = hsv2rgb(color);
-			if (i < ITER)
-			{
-				color2.r = i * st_r % 255;
-				color2.g = i * st_g % 255;
-				color2.b = i * st_b % 255;
-			}
-			fin_color = creatergb((color2.r), (color2.g), (color2.b));
+			fin_color = coloring(i);
 			fputs(ft_itoa(fin_color / 10000), ptrfile);
 			fputs(" ", ptrfile);
 			mlx_pixel_put(mlx_ptr, win_ptr, x, y, fin_color);
