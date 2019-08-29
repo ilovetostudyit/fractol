@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:17:56 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 20:45:25 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 20:52:19 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		mandelbrot(void *mlx_ptr, void *win_ptr)
 {
-	t_fract		mn;
 	t_pnum		p;
 	FILE		*ptrfile;
 	int			i;
@@ -29,19 +28,7 @@ int		mandelbrot(void *mlx_ptr, void *win_ptr)
 		{
 			p.pr = 1.5 * (cur.px - RES_X / 2) / (0.5 * zoom * RES_X) + move_x;
 			p.pi = (cur.py - RES_Y / 2) / (0.5 * zoom * RES_Y) + move_y;
-			mn.newre = 0;
-			mn.newim = 0;
-			i = 0;
-			while (i < ITER)
-			{
-				mn.oldre = mn.newre;
-				mn.oldim = mn.newim;
-				mn.newre = mn.oldre * mn.oldre - mn.oldim * mn.oldim + p.pr;
-				mn.newim = 2 * mn.oldre * mn.oldim + p.pi;
-				if ((mn.newre * mn.newre + mn.newim * mn.newim) > 4)
-					break ;
-				i++;
-			}
+			i = mand_count(p);
 			fputs(ft_itoa(coloring(i) / 10000), ptrfile);
 			fputs(" ", ptrfile);
 			mlx_pixel_put(mlx_ptr, win_ptr, cur.px, cur.py, coloring(i));

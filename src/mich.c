@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 20:05:23 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 20:27:23 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 20:51:55 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,25 @@ long int d_count(long int d, t_coord cd)
 		d = d / 3;
 	}
     return(d);
+}
+
+int mand_count(t_pnum p)
+{
+    int i;
+    t_fract		mn;
+
+    mn.newre = 0;
+	mn.newim = 0;
+    i = 0;
+    while (i < ITER)
+	{
+		mn.oldre = mn.newre;
+		mn.oldim = mn.newim;
+		mn.newre = mn.oldre * mn.oldre - mn.oldim * mn.oldim + p.pr;
+		mn.newim = 2 * mn.oldre * mn.oldim + p.pi;
+		if ((mn.newre * mn.newre + mn.newim * mn.newim) > 4)
+			return(i);
+		i++;
+	}
+    return(i);
 }
