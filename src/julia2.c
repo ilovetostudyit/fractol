@@ -2,11 +2,11 @@
 int julia2(void *mlx_ptr, void *win_ptr)
 {
   //double cRe, cIm;           //real and imaginary part of the constant c, determinate shape of the Julia Set
-  double newRe, newIm, oldRe, oldIm;   //real and imaginary parts of new and old
+  double newre, newIm, oldre, oldimm;   //real and imaginary parts of new and old
   hsv color; //the RGB color value for the pixel
   rgb color2;
   int fin_color; //after how much iterations the function should stop
-  FILE * ptrFile = fopen("julia.txt", "w");
+  FILE * ptrfile = fopen("julia.txt", "w");
 
   //pick some values for the constant c, this determines the shape of the Julia Set
 
@@ -23,7 +23,7 @@ int julia2(void *mlx_ptr, void *win_ptr)
     while(x < RES_X)
     {
         //calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-        newRe = 1.5 * (x - RES_X / 2) / (0.5 * zoom * RES_X) + move_x;
+        newre = 1.5 * (x - RES_X / 2) / (0.5 * zoom * RES_X) + move_x;
         newIm = (y - RES_Y / 2) / (0.5 * zoom * RES_Y) + move_y;
         //i will represent the number of iterations
         
@@ -32,13 +32,13 @@ int julia2(void *mlx_ptr, void *win_ptr)
         while (i < ITER)
         {
             //remember value of previous iteration
-            oldRe = newRe;
-            oldIm = newIm;
+            oldre = newre;
+            oldimm = newIm;
             //the actual iteration, the real and imaginary part are calculated
-            newRe = oldRe * oldRe - oldIm * oldIm + cRe;
-            newIm = 2 * oldRe * oldIm + cIm;
+            newre = oldre * oldre - oldimm * oldimm + cRe;
+            newIm = 2 * oldre * oldimm + cIm;
             //if the point is outside the circle with radius 2: stop
-            if((newRe * newRe + newIm * newIm) > 4) break;
+            if((newre * newre + newIm * newIm) > 4) break;
             i++;
         }
         //use color model conversion to get rainbow palette, make brightness black if maxIterations reached
@@ -57,14 +57,14 @@ int julia2(void *mlx_ptr, void *win_ptr)
         fin_color = createRGB((color2.r), (color2.g), (color2.b));
         //fin_color = (((i * color2.r) % 255) << 16) + (((i * color2.g) % 255) << 8) + (i * color2.b) % 255;
         mlx_pixel_put(mlx_ptr, win_ptr, x, y, fin_color);
-        fputs(ft_itoa(fin_color / (RES_X * RES_Y)), ptrFile);
-        fputs(" ", ptrFile);
+        fputs(ft_itoa(fin_color / (RES_X * RES_Y)), ptrfile);
+        fputs(" ", ptrfile);
         x++;
     }
     x = 0;
-    fputs("\n", ptrFile);
+    fputs("\n", ptrfile);
     y++;
   }
-  fclose(ptrFile);
+  fclose(ptrfile);
   return 0;
 }

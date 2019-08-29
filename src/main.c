@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 15:03:42 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 15:10:45 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int ft_track(int x, int y, void *param)
 {
-    //printf("button = %d\n", button);
     if (fr_num == 1 && mouse_off)
     {
         param = 0;
@@ -195,7 +194,7 @@ int main(int argc, char **argv)
     win = argum2->win;
     ft_function(fr_num);
     argum2->zoom = zoom;
-    mlx_hook(argum2->win, 6, (1L << 6), ft_track, argum2);
+    mlx_hook(argum2->win, 6, (1L << 6), ft_track, (void *)argum2);
     mlx_mouse_hook(argum2->win, ft_zoom, argum2);
     mlx_key_hook(argum2->win, ft_form, argum2);
     mlx_loop(argum2->mlx);

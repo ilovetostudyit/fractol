@@ -2,7 +2,7 @@
 int test(void *mlx_ptr, void *win_ptr)
 {
   double cRe, cIm;           //real and imaginary part of the constant c, determinate shape of the Julia Set
-  double newRe, newIm, oldRe, oldIm;   //real and imaginary parts of new and old
+  double newRe, newIm, oldRe, oldimm;   //real and imaginary parts of new and old
   hsv color; //the RGB color value for the pixel
   rgb color2;
   int fin_color; //after how much iterations the function should stop
@@ -34,10 +34,10 @@ int test(void *mlx_ptr, void *win_ptr)
         {
             //remember value of previous iteration
             oldRe = newRe;
-            oldIm = newIm;
+            oldimm = newIm;
             //the actual iteration, the real and imaginary part are calculated
-            newRe = oldRe * oldRe - oldIm * oldIm + cRe;
-            newIm = 2 * oldRe * oldIm + cIm;
+            newRe = oldRe * oldRe - oldimm * oldimm + cRe;
+            newIm = 2 * oldRe * oldimm + cIm;
             //if the point is outside the circle with radius 2: stop
             if((newRe * newRe + newIm * newIm) > 4) break;
             i++;
