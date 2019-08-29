@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:08:34 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 20:15:33 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 20:29:05 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,25 @@
 
 void		sierpinskicarpet(void *mlx_ptr, void *win_ptr)
 {
-	long int		x;
-	long int		y;
 	long int		dim;
 	long int		d;
-	long long int	py;
-	long long int	px;
+	t_coord			cd;
+	t_coord			cur;
 
 	dim = dim_count();
-	y = 0;
-	while (y < RES_Y)
+	cur.py = 0;
+	while (cur.py < RES_Y)
 	{
-		x = 0;
-		while (x < RES_X)
+		cur.px = 0;
+		while (cur.px < RES_X)
 		{
-			px = x * zoom + move_x;
-			py = y * zoom + move_y;
+			cd.px = cur.px * zoom + move_x;
+			cd.py = cur.py * zoom + move_y;
 			d = dim / 3;
-			while (d != 0)
-			{
-				if (((px % (d * 3)) / d == 1 && (py % (d * 3)) / d == 1))
-					break ;
-				d = d / 3;
-			}
-			mlx_pixel_put(mlx_ptr, win_ptr, x, y, (serp_coloring(d, dim)));
-			x++;
+			d = d_count(d, cd);
+			mlx_pixel_put(mlx_ptr, win_ptr, cur.px, cur.py, (srp_col(d, dim)));
+			cur.px++;
 		}
-		y++;
+		cur.py++;
 	}
 }

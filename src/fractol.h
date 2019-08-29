@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 20:14:58 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 20:28:00 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int				ft_track(int x, int y, void *param);
 int				burningship(void *mlx_ptr, void *win_ptr);
 int				ft_zoom(int button);
 int				coloring(int i);
-int				serp_coloring(int i, long int d);
+int				srp_col(int i, long int d);
 long int		dim_count(void);
+long int		d_count(long int d, t_coord cd);
 #endif

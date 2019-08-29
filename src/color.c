@@ -18,7 +18,7 @@ int coloring(int i)
     return(fin_color);
 }
 
-int serp_coloring(int i, long int d)
+int srp_col(int i, long int d)
 {
     int fin_color;
     t_rgb color2;
