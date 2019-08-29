@@ -19,6 +19,7 @@ void SiepinskiCarpetFill(void *mlx_ptr, void *win_ptr)
     hsv color; //the RGB color value for the pixel
     rgb color2;
     int fin_color; //after how much iterations the function should stop
+    long long int py, px;
 
     x = 0;
     dim = 1;
@@ -34,10 +35,12 @@ void SiepinskiCarpetFill(void *mlx_ptr, void *win_ptr)
         x = 0;
         while (x < RES_X)
         {
+            px = x * zoom + move_x;
+            py = y * zoom + move_y;
             d = dim / 3;
             while (d != 0)
             {
-                if (((x % (d * 3)) / d == 1 && (y % (d * 3)) / d == 1))
+                if (((px % (d * 3)) / d == 1 && (py % (d * 3)) / d == 1))
 					break;
                 d = d / 3;
             }
