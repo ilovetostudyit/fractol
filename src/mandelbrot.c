@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:17:56 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 19:50:26 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/29 20:45:25 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,40 @@
 
 int		mandelbrot(void *mlx_ptr, void *win_ptr)
 {
-	double		pr;
-	double		pi;
-	double		newre;
-	double		newim;
-	double		oldre;
-	double		oldim;
-	int			fin_color;
+	t_fract		mn;
+	t_pnum		p;
 	FILE		*ptrfile;
-	int			y;
-	int			x;
 	int			i;
+	t_coord		cur;
 
-	y = 0;
+	cur.py = 0;
 	ptrfile = fopen("mandelbrot.txt", "w");
-	while (y < RES_Y)
+	while (cur.py < RES_Y)
 	{
-		x = 0;
-		while (x < RES_X)
+		cur.px = 0;
+		while (cur.px < RES_X)
 		{
-			pr = 1.5 * (x - RES_X / 2) / (0.5 * zoom * RES_X) + move_x;
-			pi = (y - RES_Y / 2) / (0.5 * zoom * RES_Y) + move_y;
-			newre = 0;
-			newim = 0;
+			p.pr = 1.5 * (cur.px - RES_X / 2) / (0.5 * zoom * RES_X) + move_x;
+			p.pi = (cur.py - RES_Y / 2) / (0.5 * zoom * RES_Y) + move_y;
+			mn.newre = 0;
+			mn.newim = 0;
 			i = 0;
 			while (i < ITER)
 			{
-				oldre = newre;
-				oldim = newim;
-				newre = oldre * oldre - oldim * oldim + pr;
-				newim = 2 * oldre * oldim + pi;
-				if ((newre * newre + newim * newim) > 4)
+				mn.oldre = mn.newre;
+				mn.oldim = mn.newim;
+				mn.newre = mn.oldre * mn.oldre - mn.oldim * mn.oldim + p.pr;
+				mn.newim = 2 * mn.oldre * mn.oldim + p.pi;
+				if ((mn.newre * mn.newre + mn.newim * mn.newim) > 4)
 					break ;
 				i++;
 			}
-			fin_color = coloring(i);
-			fputs(ft_itoa(fin_color / 10000), ptrfile);
+			fputs(ft_itoa(coloring(i) / 10000), ptrfile);
 			fputs(" ", ptrfile);
-			mlx_pixel_put(mlx_ptr, win_ptr, x, y, fin_color);
-			x++;
+			mlx_pixel_put(mlx_ptr, win_ptr, cur.px, cur.py, coloring(i));
+			cur.px++;
 		}
-		y++;
+		cur.py++;
 		fputs("\n", ptrfile);
 	}
 	fclose(ptrfile);

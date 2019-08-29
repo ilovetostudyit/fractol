@@ -18,7 +18,7 @@ HEA = 				$(addprefix $(HEA_PATH)/,$(HEA_NAME))
 
 #	Sources infos
 SRC_PATH = 			./src
-SRC_NAME = 			main.c sierpinski.c julia2.c hsvrgb.c hextodec.c mandelbrot.c burningship.c
+SRC_NAME = 			main.c sierpinski.c julia2.c hextodec.c mandelbrot.c burningship.c hooks.c color.c mich.c
 SRC = 				$(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 #	Objects infos
