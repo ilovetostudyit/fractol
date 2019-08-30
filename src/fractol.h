@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 13:02:58 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 13:17:39 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,5 @@ long int		dim_count(void);
 long int		d_count(long int d, t_coord cd);
 int				mand_count(t_pnum p);
 int				julia_count(t_pnum p);
+int				ft_form2(int button);
 #endif
