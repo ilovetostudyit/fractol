@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 13:39:48 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 14:00:59 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,22 +74,23 @@ typedef struct	s_rgb{
 	double	b;
 }				t_rgb;
 
-typedef struct s_coord{
+typedef struct	s_coord{
 	long long int px;
 	long long int py;
 }				t_coord;
 
-typedef struct s_fract{
+typedef struct	s_fract{
 	double		newre;
 	double		newim;
 	double		oldre;
 	double		oldim;
 }				t_fract;
 
-typedef struct s_pnum{
+typedef struct	s_pnum{
 	double		pr;
 	double		pi;
 }				t_pnum;
+
 int				hextodec(long dec);
 void			sierpinskicarpet(void *mlx_ptr, void *win_ptr);
 int				ft_usage(void);
