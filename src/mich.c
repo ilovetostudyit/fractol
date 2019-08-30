@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 20:05:23 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 13:55:32 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:43:39 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int				mand_count(t_pnum p)
 	return (i);
 }
 
-int				julia_count(t_pnum p)
+int				julia_count(t_pnum p, t_shit *argum2)
 {
 	int			i;
 	t_fract		mn;
@@ -71,8 +71,8 @@ int				julia_count(t_pnum p)
 	{
 		mn.oldre = mn.newre;
 		mn.oldim = mn.newim;
-		mn.newre = mn.oldre * mn.oldre - mn.oldim * mn.oldim + cre;
-		mn.newim = 2 * mn.oldre * mn.oldim + cim;
+		mn.newre = mn.oldre * mn.oldre - mn.oldim * mn.oldim + argum2->cre;
+		mn.newim = 2 * mn.oldre * mn.oldim + argum2->cim;
 		if ((mn.newre * mn.newre + mn.newim * mn.newim) > 4)
 			return (i);
 		i++;

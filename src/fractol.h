@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 15:04:03 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:44:15 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,10 @@ typedef struct	s_pnum{
 int				hextodec(long dec);
 void			sierpinskicarpet(void *mlx_ptr, void *win_ptr);
 int				ft_usage(void);
-int				julia2(void *mlx_ptr, void *win_ptr);
+int				julia2(t_shit *argum2);
 unsigned long	create_rgb(int r, int g, int b);
 int				mandelbrot(void *mlx_ptr, void *win_ptr);
-void			ft_function(int fr_num, t_shit *argum2);
+void			ft_function(t_shit *argum2);
 void			clear_image(void *mlx_ptr, void *win_ptr);
 int				ft_form(int button, void *param);
 int				ft_clear(int button);
@@ -118,7 +118,7 @@ int				srp_col(int i, long int d);
 long int		dim_count(void);
 long int		d_count(long int d, t_coord cd);
 int				mand_count(t_pnum p);
-int				julia_count(t_pnum p);
+int				julia_count(t_pnum p, t_shit *argum2);
 int				burning_count(t_pnum p);
 int				ft_form2(int button, t_shit *argum2);
 void 			ft_init(t_shit *argum2);

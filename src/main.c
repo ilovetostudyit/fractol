@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 14:53:09 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:39:30 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ void	clear_image(void *mlx_ptr, void *win_ptr)
 	}
 }
 
-void	ft_function(int fr_num, t_shit *argum2)
+void	ft_function(t_shit *argum2)
 {
-	if (fr_num == 4)
+	if (argum2->fr_num == 4)
 	{
 		sierpinskicarpet(mlx, win);
 	}
-	else if (fr_num == 1)
+	else if (argum2->fr_num == 1)
 	{
-		julia2(argum2->mlx, argum2->win);
+		julia2(argum2);
 	}
-	else if (fr_num == 2)
+	else if (argum2->fr_num == 2)
 	{
 		mandelbrot(mlx, win);
 	}
-	else if (fr_num == 3)
+	else if (argum2->fr_num == 3)
 	{
 		burningship(mlx, win);
 	}
@@ -89,13 +89,13 @@ int		main(int argc, char **argv)
 	argum2 = (t_shit*)malloc(sizeof(t_shit));
 	ft_init(argum2);
 	zoom = 1;
-	if ((argc != 2) || (!(fr_num = ft_check_args(argv[1]))))
+	if ((argc != 2) || (!(argum2->fr_num = ft_check_args(argv[1]))))
 		return (ft_usage());
 	argum2->mlx = mlx_init();
 	mlx = argum2->mlx;
 	argum2->win = mlx_new_window(argum2->mlx, RES_X, RES_Y, argv[1]);
 	win = argum2->win;
-	ft_function(fr_num, argum2);
+	ft_function(argum2);
 	mlx_hook(argum2->win, 6, (1L << 6), ft_track, (void *)argum2);
 	mlx_mouse_hook(argum2->win, ft_zoom, (void *)argum2);
 	mlx_key_hook(argum2->win, ft_form, (void *)argum2);
