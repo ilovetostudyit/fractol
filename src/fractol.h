@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 16:55:37 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 17:00:01 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,6 @@
 # define MOUSE_DOWN		5
 # define MOUSE_UP		4
 
-int st_r;
-int st_g;
-int st_b;
-double zoom;
-double move_x;
-double move_y;
-void *mlx;
-void *win;
-int fr_num;
-double cre;
-double cim;
-int mouse_off;
-
 typedef struct	s_shit{
 	int st_r;
 	int st_g;
@@ -69,12 +56,12 @@ typedef struct	s_shit{
 	double zoom;
 	double move_x;
 	double move_y;
-	void *mlx;
-	void *win;
 	int fr_num;
 	double cre;
 	double cim;
 	int mouse_off;
+	void *mlx;
+	void *win;
 }				t_shit;
 
 typedef struct	s_rgb{
@@ -101,7 +88,7 @@ typedef struct	s_pnum{
 }				t_pnum;
 
 int				hextodec(long dec);
-void			sierpinskicarpet(t_shit *argum2);
+void			sierpinskicarpet(t_shit *argum2s);
 int				ft_usage(void);
 int				julia2(t_shit *argum2);
 unsigned long	create_rgb(int r, int g, int b);
@@ -114,7 +101,7 @@ int				ft_track(int x, int y, void *param);
 int				burningship(t_shit *argum2);
 int				ft_zoom(int button, int x,int y, void *param);
 int				coloring(int i, t_shit *argum2);
-int				srp_col(int i, long int d);
+int				srp_col(int i, long int d, t_shit *argum2);
 long int		dim_count(void);
 long int		d_count(long int d, t_coord cd);
 int				mand_count(t_pnum p);

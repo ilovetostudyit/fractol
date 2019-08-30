@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 16:56:43 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:59:25 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,23 +78,12 @@ int		main(int argc, char **argv)
 {
 	t_shit		*argum2;
 
-	mouse_off = 1;
-	cre = -0.7;
-	cim = 0.27015;
-	st_r = 0;
-	st_b = 0;
-	st_g = 9;
-	move_x = -0.5;
-	move_y = 0;
 	argum2 = (t_shit*)malloc(sizeof(t_shit));
 	ft_init(argum2);
-	zoom = 1;
 	if ((argc != 2) || (!(argum2->fr_num = ft_check_args(argv[1]))))
 		return (ft_usage());
 	argum2->mlx = mlx_init();
-	mlx = argum2->mlx;
 	argum2->win = mlx_new_window(argum2->mlx, RES_X, RES_Y, argv[1]);
-	win = argum2->win;
 	ft_function(argum2);
 	mlx_hook(argum2->win, 6, (1L << 6), ft_track, (void *)argum2);
 	mlx_mouse_hook(argum2->win, ft_zoom, (void *)argum2);
