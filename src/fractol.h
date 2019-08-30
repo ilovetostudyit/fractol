@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 20:52:00 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 13:02:58 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,5 @@ int				srp_col(int i, long int d);
 long int		dim_count(void);
 long int		d_count(long int d, t_coord cd);
 int				mand_count(t_pnum p);
+int				julia_count(t_pnum p);
 #endif

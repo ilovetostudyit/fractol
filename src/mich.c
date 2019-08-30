@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 20:05:23 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 20:51:55 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 13:09:30 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,25 @@ int mand_count(t_pnum p)
 		i++;
 	}
     return(i);
+}
+
+int julia_count(t_pnum p)
+{
+	int i;
+	t_fract		mn;
+
+	i = 0;
+	mn.newre = p.pr;
+	mn.newim = p.pi;
+	while (i < ITER)
+	{
+		mn.oldre = mn.newre;
+		mn.oldim = mn.newim;
+		mn.newre = mn.oldre * mn.oldre - mn.oldim * mn.oldim + cre;
+		mn.newim = 2 * mn.oldre * mn.oldim + cim;
+		if ((mn.newre * mn.newre + mn.newim * mn.newim) > 4)
+			return(i);
+		i++;
+	}
+	return(0);
 }
