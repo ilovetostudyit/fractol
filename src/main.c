@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 16:39:30 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:56:43 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_function(t_shit *argum2)
 {
 	if (argum2->fr_num == 4)
 	{
-		sierpinskicarpet(mlx, win);
+		sierpinskicarpet(argum2);
 	}
 	else if (argum2->fr_num == 1)
 	{
@@ -43,11 +43,11 @@ void	ft_function(t_shit *argum2)
 	}
 	else if (argum2->fr_num == 2)
 	{
-		mandelbrot(mlx, win);
+		mandelbrot(argum2);
 	}
 	else if (argum2->fr_num == 3)
 	{
-		burningship(mlx, win);
+		burningship(argum2);
 	}
 }
 

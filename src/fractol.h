@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 16:44:15 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:55:37 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,19 +101,19 @@ typedef struct	s_pnum{
 }				t_pnum;
 
 int				hextodec(long dec);
-void			sierpinskicarpet(void *mlx_ptr, void *win_ptr);
+void			sierpinskicarpet(t_shit *argum2);
 int				ft_usage(void);
 int				julia2(t_shit *argum2);
 unsigned long	create_rgb(int r, int g, int b);
-int				mandelbrot(void *mlx_ptr, void *win_ptr);
+int				mandelbrot(t_shit *argum2);
 void			ft_function(t_shit *argum2);
 void			clear_image(void *mlx_ptr, void *win_ptr);
 int				ft_form(int button, void *param);
 int				ft_clear(int button);
 int				ft_track(int x, int y, void *param);
-int				burningship(void *mlx_ptr, void *win_ptr);
+int				burningship(t_shit *argum2);
 int				ft_zoom(int button, int x,int y, void *param);
-int				coloring(int i);
+int				coloring(int i, t_shit *argum2);
 int				srp_col(int i, long int d);
 long int		dim_count(void);
 long int		d_count(long int d, t_coord cd);

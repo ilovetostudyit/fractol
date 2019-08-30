@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:32:41 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 16:42:45 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:54:12 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_track(int x, int y, void *param)
 	t_shit		*argum2;
 
 	argum2 =(t_shit *)param;
-	//printf("%f\n", argum2->zoom);
 	if (argum2->fr_num == 1 && argum2->mouse_off)
 	{
 		param = 0;
@@ -36,7 +35,6 @@ int	ft_form(int button, void *param)
 	t_shit		*argum2;
 
 	argum2 =(t_shit *)param;
-	printf("%f\n", argum2->zoom);
 	if (button == KEY_UP)
 		argum2->move_y = argum2->move_y - 0.1;
 	else if (button == KEY_DOWN)
@@ -59,13 +57,13 @@ int	ft_form(int button, void *param)
 int	ft_form2(int button, t_shit *argum2)
 {
 	if (button == 21)
-		(argum2->st_r < 9) ? (st_r++) : (st_r = 0);
+		(argum2->st_r < 9) ? (argum2->st_r++) : (argum2->st_r = 0);
 	else if (button == 22)
-		(argum2->st_g < 9) ? (st_g++) : (st_g = 0);
+		(argum2->st_g < 9) ? (argum2->st_g++) : (argum2->st_g = 0);
 	else if (button == 23)
-		(argum2->st_b < 9) ? (st_b++) : (st_b = 0);
+		(argum2->st_b < 9) ? (argum2->st_b++) : (argum2->st_b = 0);
 	else if (button == KEY_CLEAR)
-		clear_image(mlx, win);
+		clear_image(argum2->mlx, argum2->win);
 	else if (button == KEY_M)
 		argum2->mouse_off ? (argum2->mouse_off--) : (argum2->mouse_off++);
 	ft_function(argum2);

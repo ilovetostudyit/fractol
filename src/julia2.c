@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:21:44 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 16:44:27 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:48:04 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int			julia2(t_shit *argum2)
 			p.pr = 1.5 * (cur.px - RES_X / 2) / (0.5 * argum2->zoom * RES_X) + argum2->move_x;
 			p.pi = (cur.py - RES_Y / 2) / (0.5 * argum2->zoom * RES_Y) + argum2->move_y;
 			i = julia_count(p, argum2);
-			mlx_pixel_put(argum2->mlx, argum2->win, cur.px, cur.py, coloring(i));
-			fputs(ft_itoa(coloring(i) / (RES_X * RES_Y)), ptrfile);
+			mlx_pixel_put(argum2->mlx, argum2->win, cur.px, cur.py, coloring(i, argum2));
+			fputs(ft_itoa(coloring(i, argum2) / (RES_X * RES_Y)), ptrfile);
 			fputs(" ", ptrfile);
 			cur.px++;
 		}

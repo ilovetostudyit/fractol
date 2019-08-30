@@ -6,13 +6,13 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:17:56 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 20:52:19 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:50:29 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		mandelbrot(void *mlx_ptr, void *win_ptr)
+int		mandelbrot(t_shit *argum2)
 {
 	t_pnum		p;
 	FILE		*ptrfile;
@@ -26,12 +26,12 @@ int		mandelbrot(void *mlx_ptr, void *win_ptr)
 		cur.px = 0;
 		while (cur.px < RES_X)
 		{
-			p.pr = 1.5 * (cur.px - RES_X / 2) / (0.5 * zoom * RES_X) + move_x;
-			p.pi = (cur.py - RES_Y / 2) / (0.5 * zoom * RES_Y) + move_y;
+			p.pr = 1.5 * (cur.px - RES_X / 2) / (0.5 * argum2->zoom * RES_X) + argum2->move_x;
+			p.pi = (cur.py - RES_Y / 2) / (0.5 * argum2->zoom * RES_Y) + argum2->move_y;
 			i = mand_count(p);
-			fputs(ft_itoa(coloring(i) / 10000), ptrfile);
+			fputs(ft_itoa(coloring(i, argum2) / 10000), ptrfile);
 			fputs(" ", ptrfile);
-			mlx_pixel_put(mlx_ptr, win_ptr, cur.px, cur.py, coloring(i));
+			mlx_pixel_put(argum2->mlx, argum2->win, cur.px, cur.py, coloring(i, argum2));
 			cur.px++;
 		}
 		cur.py++;
