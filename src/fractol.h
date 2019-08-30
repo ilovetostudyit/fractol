@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 14:00:59 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 15:04:03 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,20 @@ double cre;
 double cim;
 int mouse_off;
 
-typedef struct	s_argum{
-	void		*mlx;
-	void		*win;
-	double		zoom;
-}				t_argum;
+typedef struct	s_shit{
+	int st_r;
+	int st_g;
+	int st_b;
+	double zoom;
+	double move_x;
+	double move_y;
+	void *mlx;
+	void *win;
+	int fr_num;
+	double cre;
+	double cim;
+	int mouse_off;
+}				t_shit;
 
 typedef struct	s_rgb{
 	double	r;
@@ -97,13 +106,13 @@ int				ft_usage(void);
 int				julia2(void *mlx_ptr, void *win_ptr);
 unsigned long	create_rgb(int r, int g, int b);
 int				mandelbrot(void *mlx_ptr, void *win_ptr);
-void			ft_function(int fr_num);
+void			ft_function(int fr_num, t_shit *argum2);
 void			clear_image(void *mlx_ptr, void *win_ptr);
-int				ft_form(int button);
+int				ft_form(int button, void *param);
 int				ft_clear(int button);
 int				ft_track(int x, int y, void *param);
 int				burningship(void *mlx_ptr, void *win_ptr);
-int				ft_zoom(int button);
+int				ft_zoom(int button, int x,int y, void *param);
 int				coloring(int i);
 int				srp_col(int i, long int d);
 long int		dim_count(void);
@@ -111,5 +120,6 @@ long int		d_count(long int d, t_coord cd);
 int				mand_count(t_pnum p);
 int				julia_count(t_pnum p);
 int				burning_count(t_pnum p);
-int				ft_form2(int button);
+int				ft_form2(int button, t_shit *argum2);
+void 			ft_init(t_shit *argum2);
 #endif

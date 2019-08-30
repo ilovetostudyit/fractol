@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 16:38:18 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/29 18:08:35 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/08/30 14:53:09 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	clear_image(void *mlx_ptr, void *win_ptr)
 	}
 }
 
-void	ft_function(int fr_num)
+void	ft_function(int fr_num, t_shit *argum2)
 {
 	if (fr_num == 4)
 	{
@@ -39,7 +39,7 @@ void	ft_function(int fr_num)
 	}
 	else if (fr_num == 1)
 	{
-		julia2(mlx, win);
+		julia2(argum2->mlx, argum2->win);
 	}
 	else if (fr_num == 2)
 	{
@@ -76,7 +76,7 @@ int		ft_check_args(char *str)
 
 int		main(int argc, char **argv)
 {
-	t_argum		*argum2;
+	t_shit		*argum2;
 
 	mouse_off = 1;
 	cre = -0.7;
@@ -86,7 +86,8 @@ int		main(int argc, char **argv)
 	st_g = 9;
 	move_x = -0.5;
 	move_y = 0;
-	argum2 = (t_argum*)malloc(sizeof(t_argum));
+	argum2 = (t_shit*)malloc(sizeof(t_shit));
+	ft_init(argum2);
 	zoom = 1;
 	if ((argc != 2) || (!(fr_num = ft_check_args(argv[1]))))
 		return (ft_usage());
@@ -94,11 +95,10 @@ int		main(int argc, char **argv)
 	mlx = argum2->mlx;
 	argum2->win = mlx_new_window(argum2->mlx, RES_X, RES_Y, argv[1]);
 	win = argum2->win;
-	ft_function(fr_num);
-	argum2->zoom = zoom;
+	ft_function(fr_num, argum2);
 	mlx_hook(argum2->win, 6, (1L << 6), ft_track, (void *)argum2);
-	mlx_mouse_hook(argum2->win, ft_zoom, argum2);
-	mlx_key_hook(argum2->win, ft_form, argum2);
+	mlx_mouse_hook(argum2->win, ft_zoom, (void *)argum2);
+	mlx_key_hook(argum2->win, ft_form, (void *)argum2);
 	mlx_loop(argum2->mlx);
 	return (0);
 }
