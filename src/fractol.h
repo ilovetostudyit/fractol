@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 18:03:55 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/08/30 17:00:01 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/09/02 12:26:42 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@
 # define MOUSE_UP		4
 
 typedef struct	s_shit{
-	int st_r;
-	int st_g;
-	int st_b;
-	double zoom;
-	double move_x;
-	double move_y;
-	int fr_num;
-	double cre;
-	double cim;
-	int mouse_off;
-	void *mlx;
-	void *win;
+	int			st_r;
+	int			st_g;
+	int			st_b;
+	double		zoom;
+	double		move_x;
+	double		move_y;
+	int			fr_num;
+	double		cre;
+	double		cim;
+	int			mouse_off;
+	void		*mlx;
+	void		*win;
 }				t_shit;
 
 typedef struct	s_rgb{
@@ -90,23 +90,23 @@ typedef struct	s_pnum{
 int				hextodec(long dec);
 void			sierpinskicarpet(t_shit *argum2s);
 int				ft_usage(void);
-int				julia2(t_shit *argum2);
+int				julia2(t_shit *arg2);
 unsigned long	create_rgb(int r, int g, int b);
-int				mandelbrot(t_shit *argum2);
-void			ft_function(t_shit *argum2);
+int				mandelbrot(t_shit *arg2);
+void			ft_function(t_shit *arg2);
 void			clear_image(void *mlx_ptr, void *win_ptr);
 int				ft_form(int button, void *param);
 int				ft_clear(int button);
 int				ft_track(int x, int y, void *param);
-int				burningship(t_shit *argum2);
-int				ft_zoom(int button, int x,int y, void *param);
-int				coloring(int i, t_shit *argum2);
-int				srp_col(int i, long int d, t_shit *argum2);
+int				burningship(t_shit *arg2);
+int				ft_zoom(int button, int x, int y, void *param);
+int				coloring(int i, t_shit *arg2);
+int				srp_col(int i, long int d, t_shit *arg2);
 long int		dim_count(void);
 long int		d_count(long int d, t_coord cd);
 int				mand_count(t_pnum p);
-int				julia_count(t_pnum p, t_shit *argum2);
+int				julia_count(t_pnum p, t_shit *arg2);
 int				burning_count(t_pnum p);
-int				ft_form2(int button, t_shit *argum2);
-void 			ft_init(t_shit *argum2);
+int				ft_form2(int button, t_shit *arg2);
+void			ft_init(t_shit *arg2);
 #endif
